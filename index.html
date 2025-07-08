@@ -37,6 +37,71 @@ background: url(https://scontent.fcai20-2.fna.fbcdn.net/v/t39.30808-6/517177267_
     </style>
 </head>
 <body>
+ <!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<title>نص دائري مع خلفية</title>
+<style>
+  body {
+    margin: 27;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 103vh;
+
+    /* 👇 هنا تقدر تغير الخلفية 👇 */
+    background: linear-gradient(https://scontent.fcai20-2.fna.fbcdn.net/v/t39.30808-6/517177267_1399532797983207_1682740458802350269_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=U8WArvBpGFwQ7kNvwExFdHX&_nc_oc=Adk7iRzQf0AdIlq7KX2NYpUoPhnF4sBmBSnk3_phn4NCc-iK7wK1ulV5NmXrT9noRfk&_nc_zt=23&_nc_ht=scontent.fcai20-2.fna&_nc_gid=yIdu96-q8wq1wbuajzpgqg&oh=00_AfQDavFLADcZ5ER3D75Mt64MQqxI_tLvvUeiBygEsz7wCg&oe=6872F7E3);
+    /* أمثلة أخرى:
+       background: #222;
+       background: url('your-image.jpg') center/cover no-repeat;
+    */
+  }
+
+  svg {
+    width: 353px;
+    height: 408px;
+  }
+
+  text {
+    fill: red;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+  }
+
+  .rotate {
+    animation: spin 10s linear infinite;
+    transform-origin: 49% 50%;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(130deg); }
+  }
+</style>
+</head>
+<body>
+
+<svg viewBox="0 0 300 300">
+  <defs>
+    <path id="circlePath"
+          d="M150,150
+             m-120,0
+             a120,120 0 1,1 240,0
+             a120,120 0 1,1 -240,0"/>
+  </defs>
+  <g class="rotate">
+    <text>
+      <textPath href="#circlePath">
+        😈لا تخاف ولكن احذر😈 — 😈Don’t be afraid but be cautious😈 — 😈لا تخاف ولكن احذر😈 — Don’t be afraid but be cautious😈 —
+      </textPath>
+    </text>
+  </g>
+</svg>
+
+</body>
+</html>
+
     <h1>مرحبًا بك في صفحتي SaSa</h1>
     <div class="links">
         <a href="https://www.facebook.com/profile.php?id=100037795010419" target="_blank">فيسبوك</a>
