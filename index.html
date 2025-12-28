@@ -3,40 +3,60 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>صفحتي الشخصية</title>
+<title>SALAH.EXE</title>
 
 <style>
-/* إعدادات الصفحة */
+* { box-sizing: border-box; }
+
 body {
     margin: 0;
     height: 100vh;
-    background: url("https://scontent.fcai20-2.fna.fbcdn.net/v/t51.82787-15/589941520_18115714717568853_4390506041084125971_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=127cfc&_nc_ohc=H9R_8SuvuxEQ7kNvwG-oCjT&_nc_oc=AdkNislagvTRUHeifKAh_iRPABIoutGeFRJFkVnQKvinXWzNC65C9wFyNfq08MrSLmc&_nc_zt=23&_nc_ht=scontent.fcai20-2.fna&_nc_gid=RnkU67buMHP7LusrK_QDhQ&oh=00_AfnWE-FCLS883viv6XM79X-MxHKL4VFdYOhBcz9a3KSglQ&oe=69505BD6")
-    no-repeat center center / cover;
+    background:
+        linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+        url("assets/img/bg.jpg") no-repeat center / cover;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
     color: white;
     text-align: center;
+    cursor: pointer;
 }
 
-/* النص الدائري */
+/* Title */
+h1 {
+    font-size: 42px;
+    margin: 10px 0 5px;
+    color: red;
+    text-shadow: 0 0 10px red, 0 0 25px red;
+    letter-spacing: 3px;
+}
+
+.subtitle {
+    font-size: 14px;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+/* Circular text */
 svg {
-    width: 280px;
-    height: 280px;
+    width: 200px;   /* حجم أصغر ومتناسق */
+    height: 200px;
     margin-bottom: 15px;
 }
 
 text {
     fill: red;
-    font-size: 22px;
+    font-size: 16px; /* حجم أصغر */
+    letter-spacing: 1.5px;
 }
 
 .rotate {
-    animation: spin 10s linear infinite;
+    animation: spin 12s linear infinite;
     transform-origin: 50% 50%;
 }
 
@@ -45,66 +65,95 @@ text {
     to   { transform: rotate(360deg); }
 }
 
-/* العنوان */
-h1 {
-    margin: 10px 0 20px;
-}
-
-/* الروابط */
-.links a {
+/* Menu */
+.menu a {
     display: block;
-    width: 170px;
+    width: 220px;
     padding: 14px;
-    margin: 8px auto;
+    margin: 10px auto;
 
-    background: rgba(0,0,0,0.7);
+    background: transparent;
     color: white;
     text-decoration: none;
-    border-radius: 10px;
+    border: 2px solid red;
+    border-radius: 8px;
 
+    font-size: 15px;
+    letter-spacing: 2px;
     transition: 0.3s;
+    box-shadow: 0 0 8px red inset;
 }
 
-.links a:hover {
-    background: rgba(255,255,255,0.3);
+.menu a:hover {
+    background: red;
+    color: black;
+    transform: scale(1.08);
+    box-shadow: 0 0 20px red, 0 0 40px red;
+}
+
+/* Footer */
+.footer {
+    margin-top: 15px;
+    font-size: 13px;
+    opacity: 0.8;
 }
 </style>
 </head>
 
-<body>
+<body onclick="playMusic()">
 
-<!-- نص دائري -->
+<!-- Background Music -->
+<audio id="bgMusic.mp3" loop>
+  <source src="assets/music/music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Circular Text -->
 <svg viewBox="0 0 300 300">
   <defs>
     <path id="circlePath"
       d="M150,150
-         m-120,0
-         a120,120 0 1,1 240,0
-         a120,120 0 1,1 -240,0"/>
+         m-100,0
+         a100,100 0 1,1 200,0
+         a100,100 0 1,1 -200,0"/>
   </defs>
 
   <g class="rotate">
     <text>
-      <textPath href="#circlePath">
-        Eng Salah  Eng Salah Eng Salah Eng Salah Eng Salah Eng Salah Eng Salah •
+      <textPath href="#circlePath" startOffset="0%">
+        SALAH.EXE • PLAYER ONE •   WEB   DEV   MODE •   SALAH.EXE   Eng Salah •
       </textPath>
     </text>
   </g>
 </svg>
 
- <div class="center-text">❤I love myself ❤</div>
-   
-<h1>Eng Salah</h1>
+<h1>SALAH.EXE</h1>
+<div class="subtitle">I love myself</div>
 
-<div class="links">
-    <a href="https://www.facebook.com/profile.php?id=100037795010419" target="_blank">فيسبوك</a>
-    <a href="https://www.instagram.com/eng__salah1" target="_blank">إنستجرام</a>
-    <a href="https://sarhne.sarahah.pro/830258234" target="_blank">صارحني</a>
-    <a href="https://wa.me/2001503026732" target="_blank">واتساب</a>
-    <a href="https://twet.link/salah116249" target="_blank">تويت</a>
+<!-- Menu -->
+<div class="menu">
+    <a href="#">▶ START GAME</a>
+    <a href="#">▶ ABOUT PLAYER</a>
+    <a href="https://www.facebook.com/profile.php?id=100037795010419" target="_blank">▶ FACEBOOK</a>
+    <a href="https://www.instagram.com/eng__salah1" target="_blank">▶ INSTAGRAM</a>
+    <a href="https://twet.link/salah116249" target="_blank">▶ TWET</a>
+    <a href="https://sarhne.sarahah.pro/830258234" target="_blank">▶ SARAH</a>
+    <a href="https://wa.me/2001503026732" target="_blank">▶ WHATSAPP</a>
 </div>
+
+<div class="footer">© 2025 SALAH.EXE</div>
+
+<script>
+let musicPlayed = false;
+
+function playMusic() {
+    if (!musicPlayed) {
+        const music = document.getElementById("bgMusic.mp3");
+        music.volume = 0.6;
+        music.play();
+        musicPlayed = true;
+    }
+}
+</script>
 
 </body>
 </html>
-
-
