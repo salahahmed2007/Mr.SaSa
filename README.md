@@ -6,12 +6,7 @@
 <title>SALAH.EXE</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 body {
     height: 100vh;
     background: black;
@@ -25,50 +20,13 @@ body {
     overflow: hidden;
     cursor: pointer;
 }
-
-#fireCanvas {
-    position: fixed;
-    inset: 0;
-    z-index: -1;
-}
-
-h1 {
-    font-size: 42px;
-    margin: 10px 0 5px;
-    color: red;
-    letter-spacing: 4px;
-    text-shadow: 0 0 15px red, 0 0 40px red;
-}
-
-.subtitle {
-    font-size: 14px;
-    color: #ff6b6b;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-svg {
-    width: 200px;
-    height: 200px;
-    margin-bottom: 15px;
-}
-
-text {
-    fill: red;
-    font-size: 16px;
-    letter-spacing: 2px;
-}
-
-.rotate {
-    animation: spin 12s linear infinite;
-    transform-origin: 50% 50%;
-}
-
-@keyframes spin {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
+#fireCanvas { position: fixed; inset: 0; z-index: -1; }
+h1 { font-size: 42px; margin: 10px 0 5px; color: red; letter-spacing: 4px; text-shadow: 0 0 15px red, 0 0 40px red; }
+.subtitle { font-size: 14px; color: #ff6b6b; margin-bottom: 20px; letter-spacing: 2px; }
+svg { width: 200px; height: 200px; margin-bottom: 15px; }
+text { fill: red; font-size: 16px; letter-spacing: 2px; }
+.rotate { animation: spin 12s linear infinite; transform-origin: 50% 50%; }
+@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 .menu a {
     display: block;
     width: 240px;
@@ -84,19 +42,13 @@ text {
     transition: 0.3s;
     box-shadow: 0 0 15px red inset;
 }
-
 .menu a:hover {
     background: red;
     color: black;
     transform: scale(1.1);
     box-shadow: 0 0 25px red, 0 0 60px red;
 }
-
-.footer {
-    margin-top: 15px;
-    font-size: 13px;
-    opacity: 0.8;
-}
+.footer { margin-top: 15px; font-size: 13px; opacity: 0.8; }
 </style>
 </head>
 
@@ -104,21 +56,17 @@ text {
 
 <canvas id="fireCanvas"></canvas>
 
-<!-- 🎵 ONLINE MUSIC -->
+<!-- 🎵 LOCAL MUSIC -->
 <audio id="bgMusic" loop>
-    <source src="https://drive.google.com/uc?export=download&id=1iM7p31A8dMrZ4UE1aSRheh5DIKpXzUj9" type="audio/mpeg">
+    <source src="bgMusic.mp3" type="audio/mpeg">
 </audio>
 
 <!-- Circular Text -->
 <svg viewBox="0 0 300 300">
 <defs>
     <path id="circlePath"
-        d="M150,150
-           m-100,0
-           a100,100 0 1,1 200,0
-           a100,100 0 1,1 -200,0"/>
+        d="M150,150 m-100,0 a100,100 0 1,1 200,0 a100,100 0 1,1 -200,0"/>
 </defs>
-
 <g class="rotate">
     <text>
         <textPath href="#circlePath">
@@ -134,11 +82,11 @@ text {
 <div class="menu">
     <a href="#" onclick="playMusic()">▶ START GAME</a>
     <a href="#" onclick="playMusic()">▶ ABOUT PLAYER</a>
-    <a href="https://www.facebook.com/profile.php?id=100037795010419" target="_blank" onclick="playMusic()">▶ FACEBOOK</a>
-    <a href="https://www.instagram.com/eng__salah1" target="_blank" onclick="playMusic()">▶ INSTAGRAM</a>
-    <a href="https://twet.link/salah116249" target="_blank" onclick="playMusic()">▶ TWET</a>
-    <a href="https://sarhne.sarahah.pro/830258234" target="_blank" onclick="playMusic()">▶ SARAH</a>
-    <a href="https://wa.me/2001503026732" target="_blank" onclick="playMusic()">▶ WHATSAPP</a>
+    <a href="#" onclick="playMusic()">▶ FACEBOOK</a>
+    <a href="#" onclick="playMusic()">▶ INSTAGRAM</a>
+    <a href="#" onclick="playMusic()">▶ TWET</a>
+    <a href="#" onclick="playMusic()">▶ SARAH</a>
+    <a href="#" onclick="playMusic()">▶ WHATSAPP</a>
 </div>
 
 <div class="footer">© 2025 SALAH.EXE</div>
@@ -155,15 +103,11 @@ function playMusic() {
 const canvas = document.getElementById("fireCanvas");
 const ctx = canvas.getContext("2d");
 
-function resize() {
-    canvas.width = innerWidth;
-    canvas.height = innerHeight;
-}
+function resize() { canvas.width = innerWidth; canvas.height = innerHeight; }
 resize();
 addEventListener("resize", resize);
 
 let flames = [];
-
 class Flame {
     constructor() {
         this.x = Math.random() * canvas.width;
@@ -172,19 +116,12 @@ class Flame {
         this.speed = Math.random() * 2 + 1;
         this.life = 1;
     }
-    update() {
-        this.y -= this.speed;
-        this.life -= 0.006;
-    }
+    update() { this.y -= this.speed; this.life -= 0.006; }
     draw() {
-        const g = ctx.createRadialGradient(
-            this.x, this.y, 0,
-            this.x, this.y, this.radius
-        );
+        const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
         g.addColorStop(0, `rgba(255,255,200,${this.life})`);
         g.addColorStop(0.4, `rgba(255,120,0,${this.life})`);
         g.addColorStop(1, `rgba(80,0,0,0)`);
-
         ctx.fillStyle = g;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -194,17 +131,8 @@ class Flame {
 
 function animateFire() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
-
-    for (let i = 0; i < 12; i++) {
-        flames.push(new Flame());
-    }
-
-    flames.forEach((f,i)=>{
-        f.update();
-        f.draw();
-        if (f.life <= 0) flames.splice(i,1);
-    });
-
+    for (let i = 0; i < 12; i++) flames.push(new Flame());
+    flames.forEach((f,i)=>{ f.update(); f.draw(); if(f.life<=0) flames.splice(i,1); });
     requestAnimationFrame(animateFire);
 }
 animateFire();
