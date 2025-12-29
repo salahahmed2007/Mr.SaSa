@@ -6,33 +6,38 @@
 <title>SALAH.EXE</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
 body {
-    margin: 0;
     height: 100vh;
-    background:
-        linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
-        url("assets/img/bg.jpg") no-repeat center / cover;
-
+    background: black;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     font-family: 'Segoe UI', Tahoma, sans-serif;
     color: white;
     text-align: center;
+    overflow: hidden;
     cursor: pointer;
 }
 
-/* Title */
+#fireCanvas {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
 h1 {
     font-size: 42px;
     margin: 10px 0 5px;
     color: red;
-    text-shadow: 0 0 10px red, 0 0 25px red;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 15px red, 0 0 40px red;
 }
 
 .subtitle {
@@ -42,17 +47,16 @@ h1 {
     letter-spacing: 2px;
 }
 
-/* Circular text */
 svg {
-    width: 200px;   /* حجم أصغر ومتناسق */
+    width: 200px;
     height: 200px;
     margin-bottom: 15px;
 }
 
 text {
     fill: red;
-    font-size: 16px; /* حجم أصغر */
-    letter-spacing: 1.5px;
+    font-size: 16px;
+    letter-spacing: 2px;
 }
 
 .rotate {
@@ -62,36 +66,32 @@ text {
 
 @keyframes spin {
     from { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
+    to { transform: rotate(360deg); }
 }
 
-/* Menu */
 .menu a {
     display: block;
-    width: 220px;
-    padding: 14px;
-    margin: 10px auto;
-
-    background: transparent;
+    width: 240px;
+    padding: 15px;
+    margin: 12px auto;
+    background: rgba(0,0,0,0.6);
     color: white;
     text-decoration: none;
     border: 2px solid red;
-    border-radius: 8px;
-
+    border-radius: 10px;
     font-size: 15px;
     letter-spacing: 2px;
     transition: 0.3s;
-    box-shadow: 0 0 8px red inset;
+    box-shadow: 0 0 15px red inset;
 }
 
 .menu a:hover {
     background: red;
     color: black;
-    transform: scale(1.08);
-    box-shadow: 0 0 20px red, 0 0 40px red;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px red, 0 0 60px red;
 }
 
-/* Footer */
 .footer {
     margin-top: 15px;
     font-size: 13px;
@@ -100,59 +100,114 @@ text {
 </style>
 </head>
 
-<body onclick="playMusic()">
+<body>
 
-<!-- Background Music -->
-<audio id="bgMusic.mp3" loop>
-  <source src="assets/music/music.mp3" type="audio/mpeg">
+<canvas id="fireCanvas"></canvas>
+
+<!-- 🎵 ONLINE MUSIC -->
+<audio id="bgMusic" loop>
+    <source src="https://drive.google.com/uc?export=download&id=1iM7p31A8dMrZ4UE1aSRheh5DIKpXzUj9" type="audio/mpeg">
 </audio>
 
 <!-- Circular Text -->
 <svg viewBox="0 0 300 300">
-  <defs>
+<defs>
     <path id="circlePath"
-      d="M150,150
-         m-100,0
-         a100,100 0 1,1 200,0
-         a100,100 0 1,1 -200,0"/>
-  </defs>
+        d="M150,150
+           m-100,0
+           a100,100 0 1,1 200,0
+           a100,100 0 1,1 -200,0"/>
+</defs>
 
-  <g class="rotate">
+<g class="rotate">
     <text>
-      <textPath href="#circlePath" startOffset="0%">
-        SALAH.EXE • PLAYER ONE •   WEB   DEV   MODE •   SALAH.EXE   Eng Salah •
-      </textPath>
+        <textPath href="#circlePath">
+            SALAH.EXE • PLAYER ONE • WEB DEV MODE • SALAH.EXE •
+        </textPath>
     </text>
-  </g>
+</g>
 </svg>
 
 <h1>SALAH.EXE</h1>
 <div class="subtitle">I love myself</div>
 
-<!-- Menu -->
 <div class="menu">
-    <a href="#">▶ START GAME</a>
-    <a href="#">▶ ABOUT PLAYER</a>
-    <a href="https://www.facebook.com/profile.php?id=100037795010419" target="_blank">▶ FACEBOOK</a>
-    <a href="https://www.instagram.com/eng__salah1" target="_blank">▶ INSTAGRAM</a>
-    <a href="https://twet.link/salah116249" target="_blank">▶ TWET</a>
-    <a href="https://sarhne.sarahah.pro/830258234" target="_blank">▶ SARAH</a>
-    <a href="https://wa.me/2001503026732" target="_blank">▶ WHATSAPP</a>
+    <a href="#" onclick="playMusic()">▶ START GAME</a>
+    <a href="#" onclick="playMusic()">▶ ABOUT PLAYER</a>
+    <a href="https://www.facebook.com/profile.php?id=100037795010419" target="_blank" onclick="playMusic()">▶ FACEBOOK</a>
+    <a href="https://www.instagram.com/eng__salah1" target="_blank" onclick="playMusic()">▶ INSTAGRAM</a>
+    <a href="https://twet.link/salah116249" target="_blank" onclick="playMusic()">▶ TWET</a>
+    <a href="https://sarhne.sarahah.pro/830258234" target="_blank" onclick="playMusic()">▶ SARAH</a>
+    <a href="https://wa.me/2001503026732" target="_blank" onclick="playMusic()">▶ WHATSAPP</a>
 </div>
 
 <div class="footer">© 2025 SALAH.EXE</div>
 
 <script>
-let musicPlayed = false;
-
+/* 🔥 دالة تشغيل الأغنية لما يدوس زر */
 function playMusic() {
-    if (!musicPlayed) {
-        const music = document.getElementById("bgMusic.mp3");
-        music.volume = 0.6;
-        music.play();
-        musicPlayed = true;
+    const music = document.getElementById("bgMusic");
+    music.volume = 0.6;
+    music.play();
+}
+
+/* 🔥 REAL FIRE EFFECT */
+const canvas = document.getElementById("fireCanvas");
+const ctx = canvas.getContext("2d");
+
+function resize() {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+}
+resize();
+addEventListener("resize", resize);
+
+let flames = [];
+
+class Flame {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = canvas.height + Math.random() * 100;
+        this.radius = Math.random() * 35 + 20;
+        this.speed = Math.random() * 2 + 1;
+        this.life = 1;
+    }
+    update() {
+        this.y -= this.speed;
+        this.life -= 0.006;
+    }
+    draw() {
+        const g = ctx.createRadialGradient(
+            this.x, this.y, 0,
+            this.x, this.y, this.radius
+        );
+        g.addColorStop(0, `rgba(255,255,200,${this.life})`);
+        g.addColorStop(0.4, `rgba(255,120,0,${this.life})`);
+        g.addColorStop(1, `rgba(80,0,0,0)`);
+
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fill();
     }
 }
+
+function animateFire() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+
+    for (let i = 0; i < 12; i++) {
+        flames.push(new Flame());
+    }
+
+    flames.forEach((f,i)=>{
+        f.update();
+        f.draw();
+        if (f.life <= 0) flames.splice(i,1);
+    });
+
+    requestAnimationFrame(animateFire);
+}
+animateFire();
 </script>
 
 </body>
