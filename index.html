@@ -6,7 +6,12 @@
 <title>SALAH.EXE</title>
 
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     height: 100vh;
     background: black;
@@ -20,7 +25,13 @@ body {
     overflow: hidden;
     cursor: pointer;
 }
-#fireCanvas { position: fixed; inset: 0; z-index: -1; }
+
+#fireCanvas {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
 h1 {
     font-size: 42px;
     margin: 10px 0 5px;
@@ -28,36 +39,89 @@ h1 {
     letter-spacing: 4px;
     text-shadow: 0 0 15px red, 0 0 40px red;
 }
-.subtitle { font-size: 14px; color: #ff6b6b; margin-bottom: 20px; letter-spacing: 2px; }
-svg { width: 200px; height: 200px; margin-bottom: 15px; }
-text { fill: red; font-size: 16px; letter-spacing: 2px; }
-.rotate { animation: spin 12s linear infinite; transform-origin: 50% 50%; }
-@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-.menu a {
-    display: block; width: 240px; padding: 15px; margin: 12px auto;
-    background: rgba(0,0,0,0.6); color: white; text-decoration: none;
-    border: 2px solid red; border-radius: 10px; font-size: 15px;
-    letter-spacing: 2px; transition: 0.3s; box-shadow: 0 0 15px red inset;
+
+.subtitle {
+    font-size: 14px;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
 }
-.menu a:hover { background: red; color: black; transform: scale(1.1); box-shadow: 0 0 25px red, 0 0 60px red; }
-.footer { margin-top: 15px; font-size: 13px; opacity: 0.8; }
+
+svg {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 15px;
+}
+
+text {
+    fill: red;
+    font-size: 16px;
+    letter-spacing: 2px;
+}
+
+.rotate {
+    animation: spin 12s linear infinite;
+    transform-origin: 50% 50%;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.menu a {
+    display: block;
+    width: 240px;
+    padding: 15px;
+    margin: 12px auto;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    text-decoration: none;
+    border: 2px solid red;
+    border-radius: 10px;
+    font-size: 15px;
+    letter-spacing: 2px;
+    transition: 0.3s;
+    box-shadow: 0 0 15px red inset;
+}
+
+.menu a:hover {
+    background: red;
+    color: black;
+    transform: scale(1.1);
+    box-shadow: 0 0 25px red, 0 0 60px red;
+}
+
+.footer {
+    margin-top: 15px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+/* اخفاء اليوتيوب */
+#ytPlayer {
+    display: none;
+}
 </style>
 </head>
-
 <body>
 
 <canvas id="fireCanvas"></canvas>
 
-<!-- 🔊 MUSIC FROM GOOGLE DRIVE -->
-<audio id="bgMusic" loop>
-    <source src="https://drive.google.com/uc?export=download&id=1iM7p31A8dMrZ4UE1aSRheh5DIKpXzUj9" type="audio/mpeg">
-</audio>
+<!-- 🎥 يوتيوب بلاير مخفي يشغل موسيقى -->
+<iframe id="ytPlayer" title="YouTube Music Player"
+src="https://youtube.com/shorts/31rZWnoW7CE?si=oIT7laQCYkVYJ9dD"
+allow="autoplay"></iframe>
+
 
 <!-- Circular Text -->
 <svg viewBox="0 0 300 300">
 <defs>
     <path id="circlePath"
-        d="M150,150 m-100,0 a100,100 0 1,1 200,0 a100,100 0 1,1 -200,0"/>
+        d="M150,150
+           m-100,0
+           a100,100 0 1,1 200,0
+           a100,100 0 1,1 -200,0"/>
 </defs>
 
 <g class="rotate">
@@ -73,38 +137,31 @@ text { fill: red; font-size: 16px; letter-spacing: 2px; }
 <div class="subtitle">I love myself</div>
 
 <div class="menu">
-    <a href="#" onclick="toggleMusic()">▶ START GAME</a>
-    <a href="#" onclick="toggleMusic()">▶ ABOUT PLAYER</a>
-    <a href="https://www.facebook.com/profile.php?id=100037795010419" target="_blank" onclick="toggleMusic()">▶ FACEBOOK</a>
-    <a href="https://www.instagram.com/eng__salah1" target="_blank" onclick="toggleMusic()">▶ INSTAGRAM</a>
-    <a href="https://twet.link/salah116249" target="_blank" onclick="toggleMusic()">▶ TWET</a>
-    <a href="https://sarhne.sarahah.pro/830258234" target="_blank" onclick="toggleMusic()">▶ SARAH</a>
-    <a href="https://wa.me/2001503026732" target="_blank" onclick="toggleMusic()">▶ WHATSAPP</a>
+    <a href="#">▶ START GAME</a>
+    <a href="#">▶ ABOUT PLAYER</a>
+    <a href="https://www.facebook.com/profile.php?id=100037795010419" target="_blank">▶ FACEBOOK</a>
+    <a href="https://www.instagram.com/eng__salah1" target="_blank">▶ INSTAGRAM</a>
+    <a href="https://twet.link/salah116249" target="_blank">▶ TWET</a>
+    <a href="https://sarhne.sarahah.pro/830258234" target="_blank">▶ SARAH</a>
+    <a href="https://wa.me/2001503026732" target="_blank">▶ WHATSAPP</a>
 </div>
 
 <div class="footer">© 2025 SALAH.EXE</div>
 
 <script>
-/* 🔥 PLAY / PAUSE MUSIC */
-const music = document.getElementById("bgMusic");
-function toggleMusic() {
-    if (music.paused) {
-        music.volume = 0.6;
-        music.play();
-    } else {
-        music.pause();
-    }
-}
-
 /* 🔥 REAL FIRE EFFECT */
 const canvas = document.getElementById("fireCanvas");
 const ctx = canvas.getContext("2d");
 
-function resize() { canvas.width = innerWidth; canvas.height = innerHeight; }
+function resize() {
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+}
 resize();
 addEventListener("resize", resize);
 
 let flames = [];
+
 class Flame {
     constructor() {
         this.x = Math.random() * canvas.width;
@@ -113,23 +170,39 @@ class Flame {
         this.speed = Math.random() * 2 + 1;
         this.life = 1;
     }
-    update() { this.y -= this.speed; this.life -= 0.006; }
+    update() {
+        this.y -= this.speed;
+        this.life -= 0.006;
+    }
     draw() {
-        const g = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+        const g = ctx.createRadialGradient(
+            this.x, this.y, 0,
+            this.x, this.y, this.radius
+        );
         g.addColorStop(0, `rgba(255,255,200,${this.life})`);
         g.addColorStop(0.4, `rgba(255,120,0,${this.life})`);
         g.addColorStop(1, `rgba(80,0,0,0)`);
+
         ctx.fillStyle = g;
         ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         ctx.fill();
     }
 }
 
 function animateFire() {
     ctx.clearRect(0,0,canvas.width,canvas.height);
-    for (let i=0;i<12;i++){ flames.push(new Flame()); }
-    flames.forEach((f,i)=>{ f.update(); f.draw(); if(f.life<=0) flames.splice(i,1); });
+
+    for (let i = 0; i < 12; i++) {
+        flames.push(new Flame());
+    }
+
+    flames.forEach((f,i)=>{
+        f.update();
+        f.draw();
+        if (f.life <= 0) flames.splice(i,1);
+    });
+
     requestAnimationFrame(animateFire);
 }
 animateFire();
