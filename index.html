@@ -97,17 +97,22 @@ text {
     font-size: 13px;
     opacity: 0.8;
 }
+
+/* اخفاء اليوتيوب */
+#ytPlayer {
+    display: none;
+}
 </style>
 </head>
-
 <body>
 
 <canvas id="fireCanvas"></canvas>
 
-<!-- 🎵 ONLINE MUSIC -->
-<audio id="bgMusic" loop>
-    <source src="https://drive.google.com/file/d/1iM7p31A8dMrZ4UE1aSRheh5DIKpXzUj9/view?usp=sharing">
-</audio>
+<!-- 🎥 يوتيوب بلاير مخفي يشغل موسيقى -->
+<iframe id="ytPlayer" title="YouTube Music Player"
+src="https://www.youtube.com/embed/4yPZs81lK3w?autoplay=1&loop=1&playlist=4yPZs81lK3w&controls=0&mute=0"
+allow="autoplay"></iframe>
+
 
 <!-- Circular Text -->
 <svg viewBox="0 0 300 300">
@@ -132,25 +137,18 @@ text {
 <div class="subtitle">I love myself</div>
 
 <div class="menu">
-    <a href="#" onclick="playMusic()">▶ START GAME</a>
-    <a href="#" onclick="playMusic()">▶ ABOUT PLAYER</a>
-    <a href="https://www.facebook.com/profile.php?id=100037795010419" target="_blank" onclick="playMusic()">▶ FACEBOOK</a>
-    <a href="https://www.instagram.com/eng__salah1" target="_blank" onclick="playMusic()">▶ INSTAGRAM</a>
-    <a href="https://twet.link/salah116249" target="_blank" onclick="playMusic()">▶ TWET</a>
-    <a href="https://sarhne.sarahah.pro/830258234" target="_blank" onclick="playMusic()">▶ SARAH</a>
-    <a href="https://wa.me/2001503026732" target="_blank" onclick="playMusic()">▶ WHATSAPP</a>
+    <a href="#">▶ START GAME</a>
+    <a href="#">▶ ABOUT PLAYER</a>
+    <a href="https://www.facebook.com/profile.php?id=100037795010419" target="_blank">▶ FACEBOOK</a>
+    <a href="https://www.instagram.com/eng__salah1" target="_blank">▶ INSTAGRAM</a>
+    <a href="https://twet.link/salah116249" target="_blank">▶ TWET</a>
+    <a href="https://sarhne.sarahah.pro/830258234" target="_blank">▶ SARAH</a>
+    <a href="https://wa.me/2001503026732" target="_blank">▶ WHATSAPP</a>
 </div>
 
 <div class="footer">© 2025 SALAH.EXE</div>
 
 <script>
-/* 🔥 دالة تشغيل الأغنية لما يدوس زر */
-function playMusic() {
-    const music = document.getElementById("bgMusic");
-    music.volume = 0.6;
-    music.play();
-}
-
 /* 🔥 REAL FIRE EFFECT */
 const canvas = document.getElementById("fireCanvas");
 const ctx = canvas.getContext("2d");
